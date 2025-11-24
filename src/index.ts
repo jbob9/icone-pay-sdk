@@ -3,7 +3,7 @@ import {
     InitPaymentParams,
     InitPaymentResponse,
     initPaymentSchema,
-} from "./types";
+} from "./types.js";
 
 const DEFAULT_BASE_URL = "https://pay.iconeht.com/api";
 
@@ -91,5 +91,5 @@ export class IconePaySDK {
     }
 }
 
-export * from "./types";
+export * from "./types.js";
 
