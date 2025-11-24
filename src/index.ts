@@ -77,7 +77,6 @@ export class IconePaySDK {
                 error: false,
                 message: result.message ?? "Payment initiated successfully",
                 url: result.url ?? "",
-                raw: result,
             };
         } catch (error) {
             const message =

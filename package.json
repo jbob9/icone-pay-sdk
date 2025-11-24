@@ -1,6 +1,6 @@
 {
   "name": "icone-pay-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript SDK for icone pay payment API integration",
   "type": "module",
   "main": "dist/src/index.js",
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbob9/icone-pay-sdk,git"
+    "url": "https://github.com/jbob9/icone-pay-sdk"
   },
   "scripts": {
      "build": "tsc",

@@ -6,6 +6,7 @@ export const initPaymentSchema = z.object({
     cancelUrl: z.string(),
     currency: z.enum(["htg", "usd"]).default("htg"),
     shipping: z.number().default(0).optional(),
+    taxes: z.number().default(0).optional(),
     discount: z
         .object({
             code: z.string(),
@@ -31,7 +32,6 @@ export interface InitPaymentResponse {
     error: boolean;
     message: string;
     url?: string | null;
-    raw?: unknown;
 }
 
 export interface IconePaySDKOptions {
