@@ -33,6 +33,7 @@ export const initPaymentSchema = z.object({
       })
     )
     .optional(),
+  mode: z.enum(["test", "live"]).default("live").optional(),
 });
 
 export type InitPaymentParams = z.infer<typeof initPaymentSchema>;
@@ -42,6 +43,8 @@ export interface InitPaymentResponse {
   message: string;
   url?: string | null;
 }
+
+export type PaymentMode = "test" | "live";
 
 export interface IconePaySDKOptions {
   baseUrl?: string;

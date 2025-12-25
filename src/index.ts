@@ -5,7 +5,7 @@ import {
     initPaymentSchema,
 } from "./types.js";
 
-const DEFAULT_BASE_URL = "https://pay.iconeht.com/api";
+const DEFAULT_BASE_URL = "https://pay.iconeht.com";
 
 export class IconePaySDK {
     private readonly apiKey: string;
@@ -49,14 +49,20 @@ export class IconePaySDK {
             };
         }
 
+        const mode = parsedPayload.data.mode ?? "live";
+        const endpoint = mode === "test" ? "/api/test-payment" : "/init-payment";
+
+        // Remove mode from payload before sending to API
+        const { mode: _, ...apiPayload } = parsedPayload.data;
+
         try {
-            const response = await this.fetchFn(`${this.baseUrl}/init-payment`, {
+            const response = await this.fetchFn(`${this.baseUrl}${endpoint}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "x-api-key": this.apiKey,
                 },
-                body: JSON.stringify(parsedPayload.data),
+                body: JSON.stringify(apiPayload),
             });
 
             if (!response.ok) {
