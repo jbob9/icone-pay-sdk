@@ -50,7 +50,7 @@ export class IconePaySDK {
         }
 
         const mode = parsedPayload.data.mode ?? "live";
-        const endpoint = mode === "test" ? "/api/test-payment" : "/init-payment";
+        const endpoint = mode === "test" ? "/api/test-payment" : "/api/init-payment";
 
         // Remove mode from payload before sending to API
         const { mode: _, ...apiPayload } = parsedPayload.data;
